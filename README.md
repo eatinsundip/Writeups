@@ -1,2 +1,2 @@
 # Writeups
- All of my lab writeups
+ All of writeups for HackTheBox, TryHackMe, VulnHub, ProvingGrounds and other Security Research.
