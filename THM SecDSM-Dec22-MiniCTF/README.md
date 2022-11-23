@@ -28,6 +28,18 @@ After spending some time on the site, a lot of links don't go anywhere but one d
 ![image](https://user-images.githubusercontent.com/43767555/203446098-4fd83d1b-62b0-48ab-aa63-518c8a3758bf.png)
 ![image](https://user-images.githubusercontent.com/43767555/203446104-ca0609f7-04f1-4e04-a431-314c465fe0e6.png)
 
+I checked the link in burp with the same results.
+
+There are two routes here.
+1. Edit the hosts file to match the url in the broken link
+1. Edit the link to point to the machiine's known IP.
+
+![image](https://user-images.githubusercontent.com/43767555/203446466-85f0dc87-dd5d-4d88-81d1-b8de05635a98.png)
+
+This got me a download for the file.
+
+![image](https://user-images.githubusercontent.com/43767555/203446486-7b086bfa-12b4-49fa-822a-1b8f81d5d705.png)
+
 
 
 # Foothold
