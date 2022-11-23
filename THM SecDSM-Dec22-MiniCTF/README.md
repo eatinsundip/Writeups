@@ -143,6 +143,20 @@ Oh wait, wrong command!
 
 ![image](https://user-images.githubusercontent.com/43767555/203450769-ef6eb46f-ea13-4040-83a8-2f2791c97cab.png)
 
-It looks like this script is checking if port 80 is online on localhost. If it isn't then it restarts the apache service.
-Pretty simple but on it's own not exploitable.
-What is exploitable is the writeable directory the file lives in.
+It looks like this script is checking if port 80 is online on localhost. If it isn't then it restarts the apache service. This is all pretty simple but on it's own not exploitable. What is exploitable is the writeable directory the file lives in.
+
+Python imports modules in a specific order and iut is possible to exploit this given the right parameters.
+1.    The current directory (same directory as script doing the importing).
+1.    The library of standard modules.
+1.    The paths defined in sys.path.*
+
+[Source]: https://www.webucator.com/article/how-python-finds-imported-modules
+
+Let's pull in the real sockets.py file into the directory and modify it to exploit this configuration vulnerability on the machine.
+
+![image](https://user-images.githubusercontent.com/43767555/203451434-4f756d72-8933-4466-a17f-fe6a1e57ae2d.png)
+
+With the file succesfully pulled into the directory we can now build a reverse shell back to the attackbox.
+
+[]: revshells.com
+![image](https://user-images.githubusercontent.com/43767555/203451481-0b4b7008-3976-4d6e-97f6-9d338cc80362.png)
