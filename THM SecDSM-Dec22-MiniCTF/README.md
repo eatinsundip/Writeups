@@ -31,7 +31,10 @@ Start with basic and advanced NMAP scans on the box.
 nmap -v secdsm.thm
 ```
 ![image](https://user-images.githubusercontent.com/43767555/203445905-4d04de66-d01c-48f0-9407-229137a38694.png)
-![image](https://user-images.githubusercontent.com/43767555/203445915-0b21ff59-a63c-4ecb-8c61-27616b5fb5ab.png)
+```
+nmap -p 22,80 -A -sC -sV -v secdsm.thm
+```
+![image],(https://user-images.githubusercontent.com/43767555/203445915-0b21ff59-a63c-4ecb-8c61-27616b5fb5ab.png)
 
 HTTP and SSH are open. HTTP is always a pretty interesting place to start.
 
@@ -58,6 +61,25 @@ The file is encrypted but it seems to hold something called backup.txt.
 
 ![image](https://user-images.githubusercontent.com/43767555/203446633-38e82173-bffe-4005-8558-a5e61838193f.png)
 ![image](https://user-images.githubusercontent.com/43767555/203446679-2d9c099d-892a-4ede-80be-2de595097022.png)
+
+This command will only work out of the box on later versions of Kali. You can download or search for this on your machine as well.
+```
+zip2john temp.zip > hash
+```
+![image](https://user-images.githubusercontent.com/43767555/203447619-fba66001-9dea-459e-b14c-ff1b3813db41.png)
+
+Next is to crack this hash with john.
+```
+john hash --wordlist=/usr/share/wordlist/rockyou.txt
+```
+
+![image](https://user-images.githubusercontent.com/43767555/203447633-1cc3421b-1cd5-427a-8e26-46856d178fff.png)
+
+This crack was succesful!
+```
+unzip temp.zip
+<password>
+```
 
 
 
