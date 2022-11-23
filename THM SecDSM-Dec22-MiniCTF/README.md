@@ -1,10 +1,8 @@
 # THM SecDSM-Dec22-MiniCTF Writeup
 
 ​		22<sup>nd</sup> December 2022
-
 ​		[Box Link](https://tryhackme.com/jr/secdsmdecember22minictf)
-
-​		[writeups@centraliowacybersec.com](mail:writeups@centraliowacybersec.com)
+​		writeups@centraliowacybersec.com
  
 ## Skills Needed or Learned
 1. Web Service Enumeration.
