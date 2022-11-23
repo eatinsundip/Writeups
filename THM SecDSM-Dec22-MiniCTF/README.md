@@ -150,7 +150,7 @@ Python imports modules in a specific order and iut is possible to exploit this g
 1.    The library of standard modules.
 1.    The paths defined in sys.path.*
 
-[Source]: https://www.webucator.com/article/how-python-finds-imported-modules
+[Source](https://www.webucator.com/article/how-python-finds-imported-modules)
 
 Let's pull in the real sockets.py file into the directory and modify it to exploit this configuration vulnerability on the machine.
 
@@ -158,5 +158,5 @@ Let's pull in the real sockets.py file into the directory and modify it to explo
 
 With the file succesfully pulled into the directory we can now build a reverse shell back to the attackbox.
 
-[]: revshells.com
+[Revshells.com](https://revshells.com)
 ![image](https://user-images.githubusercontent.com/43767555/203451481-0b4b7008-3976-4d6e-97f6-9d338cc80362.png)
