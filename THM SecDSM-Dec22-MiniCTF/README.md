@@ -17,9 +17,7 @@
 
 This is the official writeup for the box. This is my first boot2root for a public audience so feedback is highly desired! Have fun and please reach out to me for any questions related to the box!
 
-### Difficulty:
-
-`easy`
+### Difficulty: Easy
 
 # Hosts File
 
