@@ -1,7 +1,9 @@
 # THM SecDSM-Dec22-MiniCTF Writeup
 
 ​		22<sup>nd</sup> December 2022
+
 ​		writeups@centraliowacybersec.com
+
 ​		[Box Link](https://tryhackme.com/jr/secdsmdecember22minictf)
 
  
