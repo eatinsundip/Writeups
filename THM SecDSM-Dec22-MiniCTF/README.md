@@ -1,6 +1,6 @@
 # THM SecDSM-Dec22-MiniCTF Writeup
 
-​		22<sup>nd</sup> December 2022
+​		November 22<sup>nd</sup> 2022
 
 ​		writeups@centraliowacybersec.com
 
