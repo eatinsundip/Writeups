@@ -36,7 +36,7 @@ Start with basic and advanced NMAP scans on the box.
 ![image](https://user-images.githubusercontent.com/43767555/203445905-4d04de66-d01c-48f0-9407-229137a38694.png)
 
 `nmap -p 22,80 -A -sC -sV -v secdsm.thm`
-![image],(https://user-images.githubusercontent.com/43767555/203445915-0b21ff59-a63c-4ecb-8c61-27616b5fb5ab.png)
+![image](https://user-images.githubusercontent.com/43767555/203445915-0b21ff59-a63c-4ecb-8c61-27616b5fb5ab.png)
 
 HTTP and SSH are open. HTTP is always a pretty interesting place to start.
 
