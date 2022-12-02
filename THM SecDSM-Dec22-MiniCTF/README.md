@@ -51,7 +51,7 @@ I checked the link in burp with the same results.
 
 There are two routes here.
 1. Edit the hosts file to match the url in the broken link
-1. Edit the link to point to the machiine's known IP.
+1. Edit the link to point to the machine's known IP.
 
 ![image](https://user-images.githubusercontent.com/43767555/203446466-85f0dc87-dd5d-4d88-81d1-b8de05635a98.png)
 
