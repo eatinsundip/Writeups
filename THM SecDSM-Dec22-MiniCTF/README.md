@@ -64,6 +64,7 @@ This got me a download for the file.
 The file is encrypted but it seems to hold something called backup.txt.
 
 ![image](https://user-images.githubusercontent.com/43767555/203446633-38e82173-bffe-4005-8558-a5e61838193f.png)
+
 ![image](https://user-images.githubusercontent.com/43767555/203446679-2d9c099d-892a-4ede-80be-2de595097022.png)
 
 This command will only work out of the box on later versions of Kali. You can download or search for this on your machine as well.
